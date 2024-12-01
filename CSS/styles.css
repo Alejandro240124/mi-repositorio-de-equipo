@@ -1,0 +1,144 @@
+:root {
+  --primary-bg-color: #1f2937;
+  --secondary-bg-color: #15191c;
+  --button-bg-color: #007bff; /* Color de fondo del botón */
+  --button-hover-bg-color: #0056b3; /* Color de fondo cuando el botón está en hover */
+  --completed-task-color: #aaa; /* Color para tareas completadas */
+  --text-color: #b7b7b7; /* Color para los textos */
+  --input-bg-color: #12171e; /* Fondo de los inputs */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilo general del cuerpo */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--primary-bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor principal */
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--secondary-bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 13px 2px #007bff63;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Estilo del input (campo de texto) */
+input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  border: 1px solid #113153;
+  background-color: var(--input-bg-color);
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* Estilo del botón */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--button-bg-color);
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+/* Estilo de la lista de tareas */
+ul {
+  list-style: none;
+  padding-left: 0;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Estilo para las tareas */
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: #36434d;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px #007bff63;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+li:hover {
+  transform: translateY(-2px);
+}
+
+/* Estilo para las tareas completadas */
+.completed {
+  text-decoration: line-through;
+  color: var(--completed-task-color);
+  opacity: 0.6;
+}
+
+/* Contenedor de los toasts, se posiciona en la esquina inferior derecha */
+#toastContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Estilo del toast */
+.toast {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  font-size: 16px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Toast de éxito */
+.toast.success {
+  background-color: #02ff0a77; /* Verde */
+}
+
+/* Toast de error */
+.toast.error {
+  background-color: #e61a0b6e; /* Rojo */
+}
+
+/* El toast se vuelve visible */
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
