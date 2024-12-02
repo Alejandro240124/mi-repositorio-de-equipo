@@ -3,7 +3,7 @@
   --secondary-bg-color: #15191c;
   --button-bg-color: #007bff; /* Color de fondo del botón */
   --button-hover-bg-color: #0056b3; /* Color de fondo cuando el botón está en hover */
-  --completed-task-color: #aaa; /* Color para tareas completadas */
+  --completed-task-color: #6dadf3; /* Color para tareas completadas */
   --text-color: #b7b7b7; /* Color para los textos */
   --input-bg-color: #12171e; /* Fondo de los inputs */
   --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra sutil */
@@ -11,7 +11,7 @@
 
 /* Estilo general del cuerpo */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background-color: var(--primary-bg-color);
   color: var(--text-color);
   margin: 0;
@@ -38,7 +38,8 @@ body {
 
 /* Estilo del input (campo de texto) */
 input {
-  width: 100%;
+  width: 94%;
+  height: 50px;
   padding: 12px;
   margin-bottom: 16px;
   border-radius: 4px;
