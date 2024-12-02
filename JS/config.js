@@ -35,6 +35,19 @@ function addTask() {
   const li = document.createElement("li");
   li.textContent = taskText;
 
+  // Crear el botón de eliminar
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Eliminar";
+  deleteBtn.classList.add("delete-btn");
+  
+  // Añadir el evento para eliminar la tarea
+  deleteBtn.addEventListener("click", () => {
+    deleteTask(li);
+  });
+
+  // Añadir el botón de eliminar al li
+  li.appendChild(deleteBtn);
+
   // Añadir la tarea a la lista
   taskList.appendChild(li);
 
@@ -45,6 +58,15 @@ function addTask() {
   showToast("Tarea agregada exitosamente", "success");
 
   // Guardar las tareas en localStorage después de agregar una
+  saveTasks();
+}
+
+// Función para eliminar una tarea
+function deleteTask(taskElement) {
+  taskElement.remove(); // Eliminar la tarea de la interfaz de usuario
+  showToast("Tarea eliminada", "success");
+
+  // Guardar las tareas en localStorage después de eliminar una
   saveTasks();
 }
 
@@ -65,6 +87,21 @@ function loadTasks() {
     const li = document.createElement("li");
     li.textContent = task.text;
     li.classList.toggle("completed", task.completed);
+
+    // Crear el botón de eliminar
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Eliminar";
+    deleteBtn.classList.add("delete-btn");
+
+    // Añadir el evento para eliminar la tarea
+    deleteBtn.addEventListener("click", () => {
+      deleteTask(li);
+    });
+
+    // Añadir el botón de eliminar al li
+    li.appendChild(deleteBtn);
+
+    // Añadir la tarea a la lista
     taskList.appendChild(li);
   });
 }
@@ -75,7 +112,7 @@ function saveTasks() {
   const taskItems = taskList.querySelectorAll("li");
   taskItems.forEach((item) => {
     tasks.push({
-      text: item.textContent,
+      text: item.textContent.replace("Eliminar", "").trim(),
       completed: item.classList.contains("completed"),
     });
   });
