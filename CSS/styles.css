@@ -11,7 +11,7 @@
 
 /* Estilo general del cuerpo */
 body {
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
   background-color: var(--primary-bg-color);
   color: var(--text-color);
   margin: 0;
@@ -143,4 +143,45 @@ li:hover {
 .toast.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Estilo del botón de eliminar */
+.delete-btn {
+  background-color: #e61a0b6e;
+  color: white;
+  font-size: 12px; /* Un tamaño de fuente adecuado pero pequeño */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 5px 8px; /* Un poco de padding para hacerlo más compacto */
+  transition: background-color 0.3s ease;
+  margin-left: 10px; /* Separación del texto */
+  text-align: center; /* Asegura que el texto esté centrado */
+  height: 25px; /* Altura adecuada para que el texto sea legible */
+  width: auto; /* Ancho ajustable según el texto */
+}
+
+/* Al pasar el mouse sobre el botón, cambia el color de fondo */
+.delete-btn:hover {
+  background-color: #d70000;
+}
+
+/* Estilo de la lista de tareas */
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 10px;
+  background-color: #36434d;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px #007bff63;
+  cursor: pointer;
+}
+
+/* Estilo para las tareas completadas */
+.completed {
+  text-decoration: line-through;
+  color: var(--completed-task-color);
+  opacity: 0.6;
 }
